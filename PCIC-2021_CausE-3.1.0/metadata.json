@@ -1,0 +1,115 @@
+{
+  "version" : "5.0",
+  "basicinfo" : {
+    "creation_time" : "20210810100235",
+    "model_file_type" : [ {
+      "env_name" : "PyTorch",
+      "file_type" : "others",
+      "name" : "model"
+    } ],
+    "name" : "PCIC-2021_Causal_Inference",
+    "description" : "",
+    "id" : "PCIC-2021_Causal_Inference",
+    "type" : "model",
+    "category" : "",
+    "version" : "3.0.0",
+    "group" : "",
+    "tags" : ""
+  },
+  "runtime" : [ {
+    "env" : {
+      "env_name" : "PyTorch",
+      "env_dependencies" : {
+        "hardware_dependencies" : [ {
+          "min_value" : "1",
+          "name" : "CPU",
+          "max_value" : "8"
+        }, {
+          "min_value" : "1GB",
+          "name" : "MEM",
+          "max_value" : "32GB"
+        }, {
+          "min_value" : "0",
+          "name" : "GPU",
+          "max_value" : "0"
+        } ],
+        "enable_gpu" : false
+      },
+      "env_version" : "PyTorch-1.0.0-python3.6"
+    },
+    "runtime_type" : "retrain",
+    "software_dependencies" : [ {
+      "installer" : "pip",
+      "python_requirements" : "requirements.txt"
+    } ]
+  }, {
+    "env" : {
+      "env_name" : "PyTorch",
+      "env_dependencies" : {
+        "hardware_dependencies" : [ {
+          "min_value" : "1",
+          "name" : "CPU",
+          "max_value" : "8"
+        }, {
+          "min_value" : "1GB",
+          "name" : "MEM",
+          "max_value" : "32GB"
+        }, {
+          "min_value" : "0",
+          "name" : "GPU",
+          "max_value" : "0"
+        } ],
+        "enable_gpu" : false
+      },
+      "env_version" : "PyTorch-1.0.0-python3.6"
+    },
+    "runtime_type" : "predict",
+    "software_dependencies" : [ {
+      "installer" : "pip",
+      "python_requirements" : "requirements.txt"
+    } ]
+  } ],
+  "methods" : [ {
+    "entry" : "train_demo2.py",
+    "input_params" : [ {
+      "name" : "",
+      "default_dataset" : "",
+      "default_dataset_entity" : "",
+      "default_label" : ""
+    }, {
+      "name" : "",
+      "default_value" : ""
+    }, {
+      "name" : "",
+      "default_value" : ""
+    }, {
+      "name" : "",
+      "default_value" : ""
+    } ],
+    "name" : "CausE_train",
+    "type" : "retrain",
+    "http_method" : "post",
+    "http_path" : "/retrain",
+    "input_datameta" : {
+      "min_size" : "0",
+      "datasets" : ""
+    },
+    "model_file_directory" : "model",
+    "invoke_type" : "async"
+  }, {
+    "entry" : "Test_predict.py:predict_data",
+    "http_method" : "post",
+    "name" : "Test_predict",
+    "model_file_directory" : "model",
+    "output_params" : [ ],
+    "input_datameta" : { },
+    "description" : "",
+    "http_path" : "/predict",
+    "input_params_demo" : "",
+    "type" : "predict",
+    "invoke_type" : "sync"
+  } ],
+  "datasets" : [ ],
+  "metrics" : [ ],
+  "config_meta" : [ ]
+}
